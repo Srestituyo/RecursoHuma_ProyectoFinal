@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\sebas\source\repos\RecursoHumano_ProyectoFinal\RecursoHumano_ProyectoFinal\Models\RecursoHumano.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Victor\Desktop\RecursoHuma_ProyectoFinal-master\RecursoHumano_ProyectoFinal\RecursoHumano_ProyectoFinal\Models\RecursoHumano.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

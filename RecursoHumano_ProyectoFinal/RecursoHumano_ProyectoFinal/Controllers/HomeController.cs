@@ -16,5 +16,15 @@ namespace RecursoHumano_ProyectoFinal.Controllers
         public ActionResult Matenimiento() {
             return View();
         }
+
+        public ActionResult Procesos()
+        {
+            return View();
+        }
+
+        public ActionResult Informes()
+        {
+            return View();
+        }
     }
 }

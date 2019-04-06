@@ -2,10 +2,11 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 04/05/2019 14:50:24
--- Generated from EDMX file: C:\Users\sebas\source\repos\RecursoHumano_ProyectoFinal\RecursoHumano_ProyectoFinal\Models\RecursoHumano.edmx
+-- Date Created: 04/05/2019 17:44:43
+-- Generated from EDMX file: C:\Users\Victor\Desktop\RecursoHuma_ProyectoFinal-master\RecursoHumano_ProyectoFinal\RecursoHumano_ProyectoFinal\Models\RecursoHumano.edmx
 -- --------------------------------------------------
 
+create database RecursoHumano
 SET QUOTED_IDENTIFIER OFF;
 GO
 USE [RecursoHumano];
@@ -17,11 +18,56 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_DepartamentosEmpleados]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Empleados] DROP CONSTRAINT [FK_DepartamentosEmpleados];
+GO
+IF OBJECT_ID(N'[dbo].[FK_CargosEmpleados]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Empleados] DROP CONSTRAINT [FK_CargosEmpleados];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EmpleadosVacaciones]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Vacaciones] DROP CONSTRAINT [FK_EmpleadosVacaciones];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EmpleadosLicencias]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Licencias] DROP CONSTRAINT [FK_EmpleadosLicencias];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EmpleadosCal_Nomina]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Cal_Nomina] DROP CONSTRAINT [FK_EmpleadosCal_Nomina];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EmpleadosSalida_Empleados]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Salida_Empleados] DROP CONSTRAINT [FK_EmpleadosSalida_Empleados];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EmpleadosPermisos]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Permisos] DROP CONSTRAINT [FK_EmpleadosPermisos];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[Empleados]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Empleados];
+GO
+IF OBJECT_ID(N'[dbo].[Departamentos]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Departamentos];
+GO
+IF OBJECT_ID(N'[dbo].[Cargos]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Cargos];
+GO
+IF OBJECT_ID(N'[dbo].[Vacaciones]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Vacaciones];
+GO
+IF OBJECT_ID(N'[dbo].[Licencias]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Licencias];
+GO
+IF OBJECT_ID(N'[dbo].[Cal_Nomina]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Cal_Nomina];
+GO
+IF OBJECT_ID(N'[dbo].[Salida_Empleados]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Salida_Empleados];
+GO
+IF OBJECT_ID(N'[dbo].[Permisos]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Permisos];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables

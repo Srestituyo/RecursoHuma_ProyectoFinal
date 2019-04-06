@@ -10,122 +10,112 @@ using RecursoHumano_ProyectoFinal.Models;
 
 namespace RecursoHumano_ProyectoFinal.Controllers
 {
-    public class EmpleadosController : Controller
+    public class LicenciasController : Controller
     {
         private RecursoHumanoContainer db = new RecursoHumanoContainer();
 
-        // GET: Empleados
+        // GET: Licencias
         public ActionResult Index()
         {
-            var empleados = db.Empleados.Include(e => e.Departamento).Include(e => e.Cargo);
-            return View(empleados.ToList());
+            var licencias = db.Licencias.Include(l => l.Empleado);
+            return View(licencias.ToList());
         }
 
-        public ActionResult Procesos()
-        {
-            var empleados = db.Empleados.Include(e => e.Departamento).Include(e => e.Cargo);
-            return View(empleados.ToList());
-        }
-
-        // GET: Empleados/Details/5
+        // GET: Licencias/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Empleados empleados = db.Empleados.Find(id);
-            if (empleados == null)
+            Licencias licencias = db.Licencias.Find(id);
+            if (licencias == null)
             {
                 return HttpNotFound();
             }
-            return View(empleados);
+            return View(licencias);
         }
 
-        // GET: Empleados/Create
+        // GET: Licencias/Create
         public ActionResult Create()
         {
-            ViewBag.DepartamentosId = new SelectList(db.Departamentos, "Id", "Nombre");
-            ViewBag.CargosId = new SelectList(db.Cargos, "Id", "Cargo");
+            ViewBag.EmpleadosId = new SelectList(db.Empleados, "Id", "Nombre");
             return View();
         }
 
-        // POST: Empleados/Create
+        // POST: Licencias/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Codigo_Empleado,Nombre,Apellido,Telefono,Fecha_Ingreso,Salario,Estatus,DepartamentosId,CargosId")] Empleados empleados)
+        public ActionResult Create([Bind(Include = "Id,EmpleadosId,Desde,Hasta,Motivo,Comentario")] Licencias licencias)
         {
             if (ModelState.IsValid)
             {
-                db.Empleados.Add(empleados);
+                db.Licencias.Add(licencias);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.DepartamentosId = new SelectList(db.Departamentos, "Id", "Nombre", empleados.DepartamentosId);
-            ViewBag.CargosId = new SelectList(db.Cargos, "Id", "Cargo", empleados.CargosId);
-            return View(empleados);
+            ViewBag.EmpleadosId = new SelectList(db.Empleados, "Id", "Nombre", licencias.EmpleadosId);
+            return View(licencias);
         }
 
-        // GET: Empleados/Edit/5
+        // GET: Licencias/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Empleados empleados = db.Empleados.Find(id);
-            if (empleados == null)
+            Licencias licencias = db.Licencias.Find(id);
+            if (licencias == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.DepartamentosId = new SelectList(db.Departamentos, "Id", "Nombre", empleados.DepartamentosId);
-            ViewBag.CargosId = new SelectList(db.Cargos, "Id", "Cargo", empleados.CargosId);
-            return View(empleados);
+            ViewBag.EmpleadosId = new SelectList(db.Empleados, "Id", "Nombre", licencias.EmpleadosId);
+            return View(licencias);
         }
 
-        // POST: Empleados/Edit/5
+        // POST: Licencias/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Codigo_Empleado,Nombre,Apellido,Telefono,Fecha_Ingreso,Salario,Estatus,DepartamentosId,CargosId")] Empleados empleados)
+        public ActionResult Edit([Bind(Include = "Id,EmpleadosId,Desde,Hasta,Motivo,Comentario")] Licencias licencias)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(empleados).State = EntityState.Modified;
+                db.Entry(licencias).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.DepartamentosId = new SelectList(db.Departamentos, "Id", "Nombre", empleados.DepartamentosId);
-            ViewBag.CargosId = new SelectList(db.Cargos, "Id", "Cargo", empleados.CargosId);
-            return View(empleados);
+            ViewBag.EmpleadosId = new SelectList(db.Empleados, "Id", "Nombre", licencias.EmpleadosId);
+            return View(licencias);
         }
 
-        // GET: Empleados/Delete/5
+        // GET: Licencias/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Empleados empleados = db.Empleados.Find(id);
-            if (empleados == null)
+            Licencias licencias = db.Licencias.Find(id);
+            if (licencias == null)
             {
                 return HttpNotFound();
             }
-            return View(empleados);
+            return View(licencias);
         }
 
-        // POST: Empleados/Delete/5
+        // POST: Licencias/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Empleados empleados = db.Empleados.Find(id);
-            db.Empleados.Remove(empleados);
+            Licencias licencias = db.Licencias.Find(id);
+            db.Licencias.Remove(licencias);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

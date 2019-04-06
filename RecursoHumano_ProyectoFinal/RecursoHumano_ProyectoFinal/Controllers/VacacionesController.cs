@@ -10,122 +10,112 @@ using RecursoHumano_ProyectoFinal.Models;
 
 namespace RecursoHumano_ProyectoFinal.Controllers
 {
-    public class EmpleadosController : Controller
+    public class VacacionesController : Controller
     {
         private RecursoHumanoContainer db = new RecursoHumanoContainer();
 
-        // GET: Empleados
+        // GET: Vacaciones
         public ActionResult Index()
         {
-            var empleados = db.Empleados.Include(e => e.Departamento).Include(e => e.Cargo);
-            return View(empleados.ToList());
+            var vacaciones = db.Vacaciones.Include(v => v.Empleado);
+            return View(vacaciones.ToList());
         }
 
-        public ActionResult Procesos()
-        {
-            var empleados = db.Empleados.Include(e => e.Departamento).Include(e => e.Cargo);
-            return View(empleados.ToList());
-        }
-
-        // GET: Empleados/Details/5
+        // GET: Vacaciones/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Empleados empleados = db.Empleados.Find(id);
-            if (empleados == null)
+            Vacaciones vacaciones = db.Vacaciones.Find(id);
+            if (vacaciones == null)
             {
                 return HttpNotFound();
             }
-            return View(empleados);
+            return View(vacaciones);
         }
 
-        // GET: Empleados/Create
+        // GET: Vacaciones/Create
         public ActionResult Create()
         {
-            ViewBag.DepartamentosId = new SelectList(db.Departamentos, "Id", "Nombre");
-            ViewBag.CargosId = new SelectList(db.Cargos, "Id", "Cargo");
+            ViewBag.EmpleadosId = new SelectList(db.Empleados, "Id", "Nombre");
             return View();
         }
 
-        // POST: Empleados/Create
+        // POST: Vacaciones/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Codigo_Empleado,Nombre,Apellido,Telefono,Fecha_Ingreso,Salario,Estatus,DepartamentosId,CargosId")] Empleados empleados)
+        public ActionResult Create([Bind(Include = "Id,EmpleadosId,Desde,Hasta,Ano_Corres,Comentario")] Vacaciones vacaciones)
         {
             if (ModelState.IsValid)
             {
-                db.Empleados.Add(empleados);
+                db.Vacaciones.Add(vacaciones);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.DepartamentosId = new SelectList(db.Departamentos, "Id", "Nombre", empleados.DepartamentosId);
-            ViewBag.CargosId = new SelectList(db.Cargos, "Id", "Cargo", empleados.CargosId);
-            return View(empleados);
+            ViewBag.EmpleadosId = new SelectList(db.Empleados, "Id", "Nombre", vacaciones.EmpleadosId);
+            return View(vacaciones);
         }
 
-        // GET: Empleados/Edit/5
+        // GET: Vacaciones/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Empleados empleados = db.Empleados.Find(id);
-            if (empleados == null)
+            Vacaciones vacaciones = db.Vacaciones.Find(id);
+            if (vacaciones == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.DepartamentosId = new SelectList(db.Departamentos, "Id", "Nombre", empleados.DepartamentosId);
-            ViewBag.CargosId = new SelectList(db.Cargos, "Id", "Cargo", empleados.CargosId);
-            return View(empleados);
+            ViewBag.EmpleadosId = new SelectList(db.Empleados, "Id", "Nombre", vacaciones.EmpleadosId);
+            return View(vacaciones);
         }
 
-        // POST: Empleados/Edit/5
+        // POST: Vacaciones/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Codigo_Empleado,Nombre,Apellido,Telefono,Fecha_Ingreso,Salario,Estatus,DepartamentosId,CargosId")] Empleados empleados)
+        public ActionResult Edit([Bind(Include = "Id,EmpleadosId,Desde,Hasta,Ano_Corres,Comentario")] Vacaciones vacaciones)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(empleados).State = EntityState.Modified;
+                db.Entry(vacaciones).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.DepartamentosId = new SelectList(db.Departamentos, "Id", "Nombre", empleados.DepartamentosId);
-            ViewBag.CargosId = new SelectList(db.Cargos, "Id", "Cargo", empleados.CargosId);
-            return View(empleados);
+            ViewBag.EmpleadosId = new SelectList(db.Empleados, "Id", "Nombre", vacaciones.EmpleadosId);
+            return View(vacaciones);
         }
 
-        // GET: Empleados/Delete/5
+        // GET: Vacaciones/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Empleados empleados = db.Empleados.Find(id);
-            if (empleados == null)
+            Vacaciones vacaciones = db.Vacaciones.Find(id);
+            if (vacaciones == null)
             {
                 return HttpNotFound();
             }
-            return View(empleados);
+            return View(vacaciones);
         }
 
-        // POST: Empleados/Delete/5
+        // POST: Vacaciones/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Empleados empleados = db.Empleados.Find(id);
-            db.Empleados.Remove(empleados);
+            Vacaciones vacaciones = db.Vacaciones.Find(id);
+            db.Vacaciones.Remove(vacaciones);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
