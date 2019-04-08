@@ -1,33 +1,62 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link href="~/Content/Estilo/StyleSheet1.css" rel="Stylesheet" type="text/css" />
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+<div id="mycarousel" class="carousel slide" data-ride="carousel" style="margin-top:-15px">
+    <ol class="carousel-indicators">
+
+        <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#mycarousel" data-slide-to="0"></li>
+        <li data-target="#mycarousel" data-slide-to="0"></li>
+    </ol>
+<br />
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            
+            <h1 class="display-4">Recurso Humano</h1>
+            <p class="lead">Generalmente la función de Recursos Humanos está compuesta por áreas tales como reclutamiento y selección, contratación, capacitación, administración o gestión del personal durante la permanencia en la empresa.</p>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#mycarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevere-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#mycarousel" role="button" data-slide="next">
+        <span class="glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
 </div>
 
 <div class="row">
-    <div class="col-md-4">
+
+    <div class="col-md-4 ">
         <h2>Modulo de Mantenimiento</h2>
         <p>
-           
+            Este módulo es la base de todo sistema de Recursos Humanos. Incorpora la base de datos correspondiente a los Activos,
+            el Personal y las Contratas del exterior y el circuito administrativo de gestión de los trabajos de mantenimiento.
         </p>
-       <button class="btn btn-danger" onclick="location.href=('@Url.Action("Matenimiento","Home")')">Acceder&raquo;</button>
+        <button class="btn btn-outline-warning" onclick="location.href=('@Url.Action("Matenimiento","Home")')">Acceder&raquo;</button>
     </div>
+
     <div class="col-md-4">
         <h2>Modulo de Procesos</h2>
         <p>
+            Este módulo se configura algunos procesos o acciones. Gestiona las vacaciones, permisos, licencias, Registra la entrada y salida del personal. Incorpora
+            el monto total de la nomina.
+
 
         </p>
-        <button class="btn btn-danger" onclick="location.href=('@Url.Action("Procesos","Home")')">Acceder&raquo;</button>
+        <button class="btn btn-outline-danger" onclick="location.href=('@Url.Action("Procesos","Home")')">Acceder&raquo;</button>
     </div>
+
     <div class="col-md-4">
         <h2>Modulo de Informes</h2>
         <p>
-
+            Este módulo se elegirá el tipo de informe a generar para presentar listas de datos en vistas. Tanto como la cantidad de empleados como
+            el total de departamento y los cargos.
         </p>
-        <button class="btn btn-danger" onclick="location.href=('@Url.Action("Informes","Home")')">Acceder&raquo;</button>
+        <button class="btn btn-outline-success" onclick="location.href=('@Url.Action("Informes","Home")')">Acceder&raquo;</button>
     </div>
 </div>
