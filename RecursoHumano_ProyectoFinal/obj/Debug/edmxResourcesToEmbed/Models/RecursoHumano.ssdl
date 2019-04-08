@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RecursoHumano.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="RecursoHumanoStoreContainer">
+    <EntitySet Name="Empleados" EntityType="RecursoHumano.Store.Empleados" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Departamentos" EntityType="RecursoHumano.Store.Departamentos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Cargos" EntityType="RecursoHumano.Store.Cargos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Vacaciones" EntityType="RecursoHumano.Store.Vacaciones" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Licencias" EntityType="RecursoHumano.Store.Licencias" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Cal_Nomina" EntityType="RecursoHumano.Store.Cal_Nomina" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Salida_Empleados" EntityType="RecursoHumano.Store.Salida_Empleados" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Permisos" EntityType="RecursoHumano.Store.Permisos" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="DepartamentosEmpleados" Association="RecursoHumano.Store.DepartamentosEmpleados">
+      <End Role="Departamentos" EntitySet="Departamentos" />
+      <End Role="Empleados" EntitySet="Empleados" />
+    </AssociationSet>
+    <AssociationSet Name="CargosEmpleados" Association="RecursoHumano.Store.CargosEmpleados">
+      <End Role="Cargos" EntitySet="Cargos" />
+      <End Role="Empleados" EntitySet="Empleados" />
+    </AssociationSet>
+    <AssociationSet Name="EmpleadosVacaciones" Association="RecursoHumano.Store.EmpleadosVacaciones">
+      <End Role="Empleados" EntitySet="Empleados" />
+      <End Role="Vacaciones" EntitySet="Vacaciones" />
+    </AssociationSet>
+    <AssociationSet Name="EmpleadosLicencias" Association="RecursoHumano.Store.EmpleadosLicencias">
+      <End Role="Empleados" EntitySet="Empleados" />
+      <End Role="Licencias" EntitySet="Licencias" />
+    </AssociationSet>
+    <AssociationSet Name="EmpleadosCal_Nomina" Association="RecursoHumano.Store.EmpleadosCal_Nomina">
+      <End Role="Empleados" EntitySet="Empleados" />
+      <End Role="Cal_Nomina" EntitySet="Cal_Nomina" />
+    </AssociationSet>
+    <AssociationSet Name="EmpleadosSalida_Empleados" Association="RecursoHumano.Store.EmpleadosSalida_Empleados">
+      <End Role="Empleados" EntitySet="Empleados" />
+      <End Role="Salida_Empleados" EntitySet="Salida_Empleados" />
+    </AssociationSet>
+    <AssociationSet Name="EmpleadosPermisos" Association="RecursoHumano.Store.EmpleadosPermisos">
+      <End Role="Empleados" EntitySet="Empleados" />
+      <End Role="Permisos" EntitySet="Permisos" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Empleados">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Codigo_Empleado" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Apellido" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Telefono" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Fecha_Ingreso" Type="datetime" Nullable="false" />
+    <Property Name="Salario" Type="float" Nullable="false" />
+    <Property Name="Estatus" Type="bit" Nullable="false" />
+    <Property Name="DepartamentosId" Type="int" Nullable="false" />
+    <Property Name="CargosId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Departamentos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Codigo_Departamento" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cargos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cargo" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vacaciones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpleadosId" Type="int" Nullable="false" />
+    <Property Name="Desde" Type="datetime" Nullable="false" />
+    <Property Name="Hasta" Type="datetime" Nullable="false" />
+    <Property Name="Ano_Corres" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Comentario" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Licencias">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpleadosId" Type="int" Nullable="false" />
+    <Property Name="Desde" Type="datetime" Nullable="false" />
+    <Property Name="Hasta" Type="datetime" Nullable="false" />
+    <Property Name="Motivo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Comentario" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cal_Nomina">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ano" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Mes" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Monto_Total" Type="int" Nullable="false" />
+    <Property Name="EmpleadosId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Salida_Empleados">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpleadosId" Type="int" Nullable="false" />
+    <Property Name="Tipo_Salida" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Motivo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Fecha_Salida" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Permisos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpleadosId" Type="int" Nullable="false" />
+    <Property Name="Desde" Type="datetime" Nullable="false" />
+    <Property Name="Hasta" Type="datetime" Nullable="false" />
+    <Property Name="Comentario" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="DepartamentosEmpleados">
+    <End Role="Departamentos" Type="RecursoHumano.Store.Departamentos" Multiplicity="1" />
+    <End Role="Empleados" Type="RecursoHumano.Store.Empleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamentos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Empleados">
+        <PropertyRef Name="DepartamentosId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CargosEmpleados">
+    <End Role="Cargos" Type="RecursoHumano.Store.Cargos" Multiplicity="1" />
+    <End Role="Empleados" Type="RecursoHumano.Store.Empleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cargos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Empleados">
+        <PropertyRef Name="CargosId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmpleadosVacaciones">
+    <End Role="Empleados" Type="RecursoHumano.Store.Empleados" Multiplicity="1" />
+    <End Role="Vacaciones" Type="RecursoHumano.Store.Vacaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleados">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vacaciones">
+        <PropertyRef Name="EmpleadosId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmpleadosLicencias">
+    <End Role="Empleados" Type="RecursoHumano.Store.Empleados" Multiplicity="1" />
+    <End Role="Licencias" Type="RecursoHumano.Store.Licencias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleados">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Licencias">
+        <PropertyRef Name="EmpleadosId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmpleadosCal_Nomina">
+    <End Role="Empleados" Type="RecursoHumano.Store.Empleados" Multiplicity="1" />
+    <End Role="Cal_Nomina" Type="RecursoHumano.Store.Cal_Nomina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleados">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cal_Nomina">
+        <PropertyRef Name="EmpleadosId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmpleadosSalida_Empleados">
+    <End Role="Empleados" Type="RecursoHumano.Store.Empleados" Multiplicity="1" />
+    <End Role="Salida_Empleados" Type="RecursoHumano.Store.Salida_Empleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleados">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Salida_Empleados">
+        <PropertyRef Name="EmpleadosId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmpleadosPermisos">
+    <End Role="Empleados" Type="RecursoHumano.Store.Empleados" Multiplicity="1" />
+    <End Role="Permisos" Type="RecursoHumano.Store.Permisos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleados">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Permisos">
+        <PropertyRef Name="EmpleadosId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

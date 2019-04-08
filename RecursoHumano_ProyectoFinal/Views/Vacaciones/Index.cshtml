@@ -1,0 +1,56 @@
+﻿@model IEnumerable<RecursoHumano_ProyectoFinal.Models.Vacaciones>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Vacaciones</h2>
+
+<p>
+    @Html.ActionLink("Asignar Vacaciones", "Create")
+</p>
+<table class="table">
+    <tr class="table-primary">
+        <th>
+            @Html.DisplayName("Empleado")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Desde)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hasta)
+        </th>
+        <th>
+            @Html.DisplayName("Año Correspondiente")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comentario)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Empleado.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Desde)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hasta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ano_Corres)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comentario)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+        </td>
+    </tr>
+}
+
+</table>

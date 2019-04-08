@@ -1,0 +1,56 @@
+﻿@model RecursoHumano_ProyectoFinal.Models.Salida_Empleados
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar</h2>
+
+<h3>¿Esta seguro que deseas eliminar?</h3>
+<div>
+    <h4>Salida de Empleados</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Tipo de Salida")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tipo_Salida)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Motivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Motivo)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Fecha de Salida")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_Salida)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Empleado")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Empleado.Nombre)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Devuelta a la lista", "Index")
+        </div>
+    }
+</div>

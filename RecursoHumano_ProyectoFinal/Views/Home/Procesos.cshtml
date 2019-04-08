@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewBag.Title = "Procesos";
+}
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<br />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="box" align="center">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <div class="box-part text-center">
+                    <img src="~/Content/Imagen/Nomina.png" width="85" height="75" alt="sample1" />
+                    <div class="title">
+                        <h4>Calcular Nomina</h4>
+                    </div>
+                    <div class="text">
+                        <span>Calcular la nomina sumando los sueldo de los empleados.</span>
+                    </div>
+                    <button class="btn btn-default" onclick="location.href=('@Url.Action("Index","Cal_Nomina")')">Calcular Nomina</button>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <div class="box-part text-center">
+                    <img src="~/Content/Imagen/Salida Empleao.png" width="85" height="75" alt="sample1" />
+                    <div class="title">
+                        <h4>Salida de Empleado</h4>
+                    </div>
+                    <div class="text">
+                        <span>Gestiona la salida de empleados de la empresa.</span>
+                    </div>
+                    <button class="btn btn-default" onclick="location.href=('@Url.Action("","")')">Salida de Empleado</button>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <div class="box-part text-center">
+                    <img src="~/Content/Imagen/descarga.jpg" width="85" height="75" alt="sample1" />
+                    <div class="title">
+                        <h4>Vacaciones</h4>
+                    </div>
+                    <div class="text">
+                        <span>Asignar las vacaciones a los empleados.</span>
+                    </div>
+                    <button class="btn btn-default" onclick="location.href=('@Url.Action("Index","Vacaciones")')">Aplicar vacaciones</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />
+
+
+<div class="box" align="center">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <div class="box-part text-center">
+                    <img src="~/Content/Imagen/Permiso.png" width="85" height="75" alt="sample1" />
+                    <div class="title">
+                        <h4>Permisos</h4>
+                    </div>
+                    <div class="text">
+                        <span>Añade los permisos a los empleados</span>
+                    </div>
+                    <button class="btn btn-default" onclick="location.href=('@Url.Action("Index","Permisos")')">Añadir Permiso</button>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+                <div class="box-part text-center">
+
+                    <img src="~/Content/Imagen/licencia.png" width="85" height="75" alt="sample1" />
+
+                    <div class="title">
+                        <h4>Licencia</h4>
+                    </div>
+
+                    <div class="text">
+                        <span>Añade las licencias a los empleados</span>
+                    </div>
+                    <button class="btn btn-default" onclick="location.href=('@Url.Action("Index","Licencias")')">Añadir Licencia</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

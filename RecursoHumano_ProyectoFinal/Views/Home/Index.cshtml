@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+
+            <h1 class="display-4">Recurso Humano</h1>
+            <p class="lead">Generalmente la función de Recursos Humanos está compuesta por áreas tales como reclutamiento y selección, contratación, capacitación, administración o gestión del personal durante la permanencia en la empresa.</p>
+        </div>
+    </div>
+   
+   
+
+
+<div class="row">
+
+    <div class="col-md-4 ">
+        <h2>Modulo de Mantenimiento</h2>
+        <p>
+            Este módulo es la base de todo sistema de Recursos Humanos. Incorpora la base de datos correspondiente a los Activos,
+            el Personal y las Contratas del exterior y el circuito administrativo de gestión de los trabajos de mantenimiento.
+        </p>
+        <button class="btn btn-default" onclick="location.href=('@Url.Action("Matenimiento","Home")')">Acceder&raquo;</button>
+    </div>
+
+    <div class="col-md-4">
+        <h2>Modulo de Procesos</h2>
+        <p>
+            Este módulo se configura algunos procesos o acciones. Gestiona las vacaciones, permisos, licencias, Registra la entrada y salida del personal. Incorpora
+            el monto total de la nomina.
+
+
+        </p>
+        <button class="btn btn-default" onclick="location.href=('@Url.Action("Procesos","Home")')">Acceder&raquo;</button>
+    </div>
+
+    <div class="col-md-4">
+        <h2>Modulo de Informes</h2>
+        <p>
+            Este módulo se elegirá el tipo de informe a generar para presentar listas de datos en vistas. Tanto como la cantidad de empleados como
+            el total de departamento y los cargos.
+        </p>
+        <button class="btn btn-default" onclick="location.href=('@Url.Action("Informes","Home")')">Acceder&raquo;</button>
+    </div>
+</div>

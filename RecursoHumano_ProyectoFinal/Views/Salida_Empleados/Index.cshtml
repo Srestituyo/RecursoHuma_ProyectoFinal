@@ -1,0 +1,60 @@
+﻿@model IEnumerable<RecursoHumano_ProyectoFinal.Models.Salida_Empleados>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Salida de Empleado</h2>
+
+<p>
+    @Html.ActionLink("Generar salida de empleado", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Tipo de Salida")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Motivo)
+        </th>
+        <th>
+            @Html.DisplayName("Fecha de la Salida")
+        </th>
+        <th>
+            @Html.DisplayName("Empleado")
+        </th>
+        <th>
+            @Html.DisplayName("Estatus")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tipo_Salida)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Motivo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha_Salida)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Empleado.Nombre)
+        </td>
+        <td>
+           @if (item.Empleado.Estatus==true) {
+               item.Empleado.Estatus = false;
+                @Html.DisplayFor(modelItem => item.Empleado.Estatus)
+           }
+           
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+        </td>
+    </tr>
+}
+
+</table>

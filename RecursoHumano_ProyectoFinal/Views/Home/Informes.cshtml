@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Informes";
+}
+<h2>Informes</h2>
+
+<div class="row">
+
+    <div class="col-md-4 ">
+        <h2>Informe de Nomina</h2>
+        <p>
+            Ver el total de las Nominas Generadas
+        </p>
+        <button class="btn btn-default" onclick="location.href=('@Url.Action("Index","Cal_Nomina")')">Acceder&raquo;</button>
+    </div>
+
+    <div class="col-md-4">
+        <h2>Informe de Empleados Activos</h2>
+        <p>
+            Ver el total y detalles de los empleados actuales activos.
+
+
+        </p>
+        <button class="btn btn-default" onclick="location.href=('@Url.Action("Activos","Empleados")')">Acceder&raquo;</button>
+    </div>
+
+    <div class="col-md-4">
+        <h2>Informe de Empleados Inactivos</h2>
+        <p>
+            Ver el total y los detalles de los empleados inactivos.
+        </p>
+        <button class="btn btn-default" onclick="location.href=('@Url.Action("Inactivos","Empleados")')">Acceder&raquo;</button>
+    </div>
+</div>
+
+
+<div class="row">
+
+    <div class="col-md-4 ">
+        <h2>Informe de Departamentos</h2>
+        <p>
+          Ver los detalles de los Departamentos Disponibles.
+        </p>
+        <button class="btn btn-default" onclick="location.href=('@Url.Action("Index","Departamentos")')">Acceder&raquo;</button>
+    </div>
+
+    <div class="col-md-4">
+        <h2>Informe de Cargos</h2>
+        <p>
+           Ver los Cargos disponibles.
+
+
+        </p>
+        <button class="btn btn-default" onclick="location.href=('@Url.Action("Index","Cargos")')">Acceder&raquo;</button>
+    </div>
+
+    <div class="col-md-4">
+        <h2>Informe de Permisos</h2>
+        <p>
+            Ver los permisos que han pedido los Empleados.
+        </p>
+        <button class="btn btn-default" onclick="location.href=('@Url.Action("Index","Permisos")')">Acceder&raquo;</button>
+    </div>
+</div>

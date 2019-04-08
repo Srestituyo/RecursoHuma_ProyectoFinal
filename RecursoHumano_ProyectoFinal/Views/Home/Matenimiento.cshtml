@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Matenimiento";
+}
+
+<h2>Modulo de Matenimiento</h2>
+<link href="~/Content/StyleSheet/StyleSheet.css" rel="Stylesheet" type="text/css" />
+<link href="~/Content/StyleSheet/Home.css" type="text/css" rel="stylesheet" />
+
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img src="~/Content/Imagen/3c35278d9d.png" alt="Bootstrap Thumbnail: Beautiful Bootstrap Thumbnail like Material Design Cards">
+                    <div class="caption">
+                        <h3>Seccion de Empleados</h3>
+                        <p class="card-description"><strong>Seccion de empleado</strong> Seccion para agregar y ver los empleados. </p>
+                        <button class="btn btn-default" onclick="location.href=('@Url.Action("Index","Empleados")')">Ver Empleados</button> <button class="btn btn-default" onclick="location.href=('@Url.Action("Create","Empleados")')">Agregar Empleado</button>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img src="~/Content/Imagen/3b5c07d59d.png" alt="Bootstrap Thumbnail Customization">
+                    <div class="caption">
+                        <h3>Seccion de Cargos</h3>
+                        <p class="card-description"><strong>Seccion de Cargos</strong> Seccion para agregar y ver los cargos disponibles.</p>
+                        <button class="btn btn-default" onclick="location.href=('@Url.Action("Index","Cargos")')">Ver Cargos</button> <button class="btn btn-default" onclick="location.href=('@Url.Action("Create","Cargos")')">Agregar Cargo</button>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img src="~/Content/Imagen/t_department_1334021.png" alt="Bootstrap Thumbnail Customization">
+                    <div class="caption">
+                        <h3>Seccion de Departamento</h3>
+                        <p class="card-description"><strong>Seccion de Departamento</strong> Seccion para ver los departamentos disponible y agregar</p>
+                        <button class="btn btn-default" onclick="location.href=('@Url.Action("Index","Departamentos")')">Ver Departamento</button>
+                        <button class="btn btn-default" onclick="location.href=('@Url.Action("Create","Departamentos")')">Agregar Departamento</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
